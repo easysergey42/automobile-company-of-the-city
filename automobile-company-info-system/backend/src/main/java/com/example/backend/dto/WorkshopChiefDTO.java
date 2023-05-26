@@ -9,5 +9,5 @@ import java.util.List;
 @Setter
 public class WorkshopChiefDTO extends PersonDTO {
     private WorkshopDTO workshop;
-    private List<MasterDTO> masters;
+//    private List<MasterDTO> masters;
 }

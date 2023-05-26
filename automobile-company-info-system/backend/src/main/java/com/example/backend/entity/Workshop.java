@@ -22,7 +22,7 @@ public class Workshop {
     @JoinColumn(name = "area_id")
     private GarageEconomy areaId;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "workshop")
     private List<WorkshopChief> chiefs;
 
 }

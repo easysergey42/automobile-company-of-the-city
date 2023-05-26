@@ -19,6 +19,6 @@ public class TeamLeader extends Person{
     @JoinColumn(name = "master_id")
     private Master master;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "teamLeader")
     private List<Team> teams;
 }

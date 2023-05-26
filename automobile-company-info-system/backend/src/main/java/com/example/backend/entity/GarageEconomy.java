@@ -17,10 +17,10 @@ public class GarageEconomy {
     private Long id;
 
     private String geType;
-
+    @Column(unique = true)
     private String address;
 
-    @OneToMany
+    @OneToMany(mappedBy = "location")
     private List<Vehicle> vehicles;
 //    @Enumerated(EnumType.STRING)
 }

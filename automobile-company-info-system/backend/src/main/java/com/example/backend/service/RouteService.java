@@ -1,15 +1,12 @@
 package com.example.backend.service;
 
 import com.example.backend.dto.RouteDTO;
-import com.example.backend.entity.Route;
 import com.example.backend.mappers.RouteMapper;
 import com.example.backend.repository.RouteRepo;
 import jakarta.transaction.Transactional;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -26,17 +23,17 @@ public class RouteService {
     @Transactional
     public RouteDTO create(@NonNull RouteDTO routeDTO){
         routeDTO.setId(null);
-        return routeMapper.toRouteDTO(routeRepo.save(routeMapper.toRoute(routeDTO)));
+        return routeMapper.toDTO(routeRepo.save(routeMapper.toRoute(routeDTO)));
     }
 
     @Transactional
     public @NonNull RouteDTO getById(Long id) throws NoSuchElementException {
-        return routeMapper.toRouteDTO(routeRepo.findById(id).orElseThrow());
+        return routeMapper.toDTO(routeRepo.findById(id).orElseThrow());
     }
 
     @Transactional
     public @NonNull RouteDTO updateName(@NonNull RouteDTO routeDTO) throws NoSuchElementException{
-        return routeMapper.toRouteDTO(routeRepo.save(routeMapper.toRoute(routeDTO)));
+        return routeMapper.toDTO(routeRepo.save(routeMapper.toRoute(routeDTO)));
     }
 
     @Transactional

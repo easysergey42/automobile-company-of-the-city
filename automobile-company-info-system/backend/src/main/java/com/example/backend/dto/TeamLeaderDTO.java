@@ -9,5 +9,5 @@ import java.util.List;
 @Setter
 public class TeamLeaderDTO extends PersonDTO {
     private MasterDTO master;
-    private List<TeamDTO> teams;
+//    private List<TeamDTO> teams;
 }

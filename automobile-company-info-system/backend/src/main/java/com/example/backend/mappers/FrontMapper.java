@@ -25,7 +25,7 @@ public class FrontMapper {
         vehicle.setAcquireDate(vehicleDTO.getAcquireDate());
         vehicle.setWriteOffDate(vehicleDTO.getWriteOffDate());
         vehicle.setAddress(vehicleDTO.getLocation().getAddress());
-        vehicle.setGarageEconomyType(vehicleDTO.getLocation().getGeType());
+        vehicle.setGeType(vehicleDTO.getLocation().getGeType());
         return vehicle;
     }
 }

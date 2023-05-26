@@ -15,6 +15,6 @@ public class RepairDTO {
     private Date date;
     private TeamDTO repairersTeam;
 
-    private List<RepairComponentDTO> repairs;
+//    private List<RepairComponentDTO> repairs;
 
 }

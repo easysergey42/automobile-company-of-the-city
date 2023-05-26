@@ -12,5 +12,5 @@ public class WorkshopDTO {
     private GarageEconomyDTO areaId;
     private String workshopName;
 
-    private List<WorkshopChiefDTO> chiefs;
+//    private List<WorkshopChiefDTO> chiefs;
 }

@@ -20,9 +20,9 @@ public class Team {
     @JoinColumn(name = "team_leader_id")
     private TeamLeader teamLeader;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "team")
     private List<Worker> workers;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "team")
     private List<Repair> repairs;
 }

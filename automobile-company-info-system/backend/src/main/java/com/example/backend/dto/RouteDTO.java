@@ -12,6 +12,6 @@ public class RouteDTO {
     private Long id;
     private String routeName;
 
-    private List<BusDTO> buses;
-    private List<RouteTaxiDTO> routeTaxis;
+//    private List<BusDTO> buses;
+//    private List<RouteTaxiDTO> routeTaxis;
 }

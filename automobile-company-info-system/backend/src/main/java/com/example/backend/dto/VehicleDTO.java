@@ -17,5 +17,5 @@ public class VehicleDTO {
     private String number;
     private GarageEconomyDTO location;
     private List<WorkerDTO> drivers;
-    private List<RepairDTO> repairs;
+//    private List<RepairDTO> repairs;
 }

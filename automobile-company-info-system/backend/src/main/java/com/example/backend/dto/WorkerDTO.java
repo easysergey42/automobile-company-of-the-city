@@ -14,5 +14,5 @@ public class WorkerDTO {
     private TeamDTO team;
     private String spec;
 
-    private List<RepairComponentDTO> repairs;
+//    private List<RepairComponentDTO> repairs;
 }

@@ -18,7 +18,7 @@ public class WorkshopChief extends Person{
     @JoinColumn(name = "workshop_id")
     private Workshop workshop;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "chief")
     private List<Master> masters;
 
 }

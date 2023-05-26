@@ -27,7 +27,7 @@ public class Vehicle {
     private String model;
     private String number;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "location_id")
     private GarageEconomy location;
 

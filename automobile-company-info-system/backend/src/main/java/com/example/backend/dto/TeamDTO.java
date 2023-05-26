@@ -10,6 +10,6 @@ import java.util.List;
 public class TeamDTO {
     private Long id;
     private TeamLeaderDTO teamLeader;
-    private List<RepairDTO> repairs;
-    private List<WorkerDTO> workers;
+//    private List<RepairDTO> repairs;
+//    private List<WorkerDTO> workers;
 }
