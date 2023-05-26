@@ -25,6 +25,7 @@ public class EntityController {
         map.put("Routes", "/routes");
         map.put("Vehicles", "/vehicles");
         map.put("Workers", "/workers");
+        map.put("Buses", "/vehicles/buses");
         ObjectMapper mapper = new ObjectMapper();
         try {
             String jsonResult = mapper.writerWithDefaultPrettyPrinter()

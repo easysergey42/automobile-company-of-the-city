@@ -35,11 +35,13 @@ public class Worker{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "worker", fetch = FetchType.LAZY)
     List<Repaircomponent> repairs;
 
-    @ManyToMany
-    @JoinTable(
-            name = "vehicledriver",
-            joinColumns = @JoinColumn(name="driver_id"),
-            inverseJoinColumns = @JoinColumn(name="vehicle_id")
-    )
-    private List<Vehicle> vehicles;
+    @ManyToMany(mappedBy = "drivers")
+    private Set<Vehicle> vehicles;
+
+    @PreRemove
+    private void removeWorkerAssociations(){
+        for (Vehicle vehicle : this.vehicles){
+            vehicle.getDrivers().remove(this);
+        }
+    }
 }

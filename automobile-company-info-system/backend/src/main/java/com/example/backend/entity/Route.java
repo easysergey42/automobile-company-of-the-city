@@ -18,6 +18,7 @@ public class Route {
     @Column(name = "route_id")
     private Long id;
 
+    @Column(unique = true)
     private String routeName;
 
     @OneToMany(

@@ -19,4 +19,6 @@ public class VehicleFrontDTO {
 //    private GarageEconomyDTO location;
     private String address;
     private String geType;
+
+    private String vehicleType;
 }
