@@ -3,8 +3,10 @@ package com.example.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.mapstruct.Mapping;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,14 +24,21 @@ public class Vehicle {
     private Date acquireDate;
     private Date writeOffDate;
     private Long mileage;
+    private String model;
+    private String number;
 
     @ManyToOne
     @JoinColumn(name = "location_id")
     private GarageEconomy location;
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "vehicle_type_id")
-    private VehicleType vehicleType;
+
 
     @ManyToMany(mappedBy = "vehicles")
-    private Set<Worker> drivers;
+    private List<Worker> drivers;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehicle", fetch = FetchType.LAZY)
+    private List<Repair> repairs;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehicle", fetch = FetchType.LAZY)
+    private List<MileageSnapshot> mileageSnapshots;
 }

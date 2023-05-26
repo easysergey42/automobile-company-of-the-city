@@ -3,6 +3,7 @@ package com.example.backend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,14 +16,21 @@ public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "route_id")
-    private long id;
+    private Long id;
 
     private String routeName;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.PERSIST,
             mappedBy = "route",
-            fetch = FetchType.LAZY
+            fetch = FetchType.EAGER
     )
-    private Set<Bus> buses;
+    private List<Bus> buses;
+
+    @OneToMany(
+            cascade = CascadeType.PERSIST,
+            mappedBy = "route",
+            fetch = FetchType.EAGER
+    )
+    private List<RouteTaxi> routeTaxis;
 }

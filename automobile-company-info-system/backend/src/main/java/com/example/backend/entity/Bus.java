@@ -12,7 +12,7 @@ import lombok.*;
 @RequiredArgsConstructor
 @PrimaryKeyJoinColumn(name="vehicle_id")
 public class Bus extends Vehicle {
-    private long passengersCapacity;
+    private Long passengersCapacity;
 
     @ManyToOne
     @JoinColumn(name = "route")

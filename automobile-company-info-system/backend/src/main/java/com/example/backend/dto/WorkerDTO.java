@@ -1,6 +1,6 @@
 package com.example.backend.dto;
 
-import com.example.backend.entity.enumtypes.Specialization;
+import com.example.backend.entity.Repaircomponent;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -12,6 +12,7 @@ public class WorkerDTO {
     private Long id;
     private PersonDTO person;
     private TeamDTO team;
-    private Specialization spec;
-    private List<VehicleDTO> vehicles;
+    private String spec;
+
+    private List<RepairComponentDTO> repairs;
 }

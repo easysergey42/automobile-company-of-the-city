@@ -1,8 +1,9 @@
 package com.example.backend.entity;
 
-import com.example.backend.entity.enumtypes.GarageEconomyType;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Setter
@@ -15,7 +16,11 @@ public class GarageEconomy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String geType;
+
     private String address;
-    @Enumerated(EnumType.STRING)
-    private GarageEconomyType geType;
+
+    @OneToMany
+    private List<Vehicle> vehicles;
+//    @Enumerated(EnumType.STRING)
 }

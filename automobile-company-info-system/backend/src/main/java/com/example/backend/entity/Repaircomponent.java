@@ -23,11 +23,8 @@ public class Repaircomponent {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "component_id")
-    private Component component;
-
-    @Id
-    @ManyToOne
     @JoinColumn(name = "repairer_id")
     private Worker worker;
+
+    private String component;
 }

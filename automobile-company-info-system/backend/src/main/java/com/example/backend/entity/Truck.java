@@ -1,8 +1,9 @@
 package com.example.backend.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Setter
@@ -10,4 +11,6 @@ import lombok.*;
 @RequiredArgsConstructor
 @PrimaryKeyJoinColumn(name="vehicle_id")
 public class Truck extends Vehicle{
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "truck", fetch= FetchType.EAGER)
+    List<CargoTransportation> trucking;
 }

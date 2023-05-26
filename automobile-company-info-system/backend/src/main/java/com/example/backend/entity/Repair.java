@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Setter
@@ -18,10 +19,13 @@ import java.sql.Date;
 public class Repair {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    private long repairPrice;
+    private Long repairPrice;
     private Date repairDate;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "repair", fetch = FetchType.EAGER)
+    List<Repaircomponent> repairs;
 
     @ManyToOne
     @JoinColumn(name = "vehicle_id")

@@ -3,6 +3,8 @@ package com.example.backend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Setter
 @Getter
@@ -19,4 +21,8 @@ public class Workshop {
     @ManyToOne
     @JoinColumn(name = "area_id")
     private GarageEconomy areaId;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<WorkshopChief> chiefs;
+
 }

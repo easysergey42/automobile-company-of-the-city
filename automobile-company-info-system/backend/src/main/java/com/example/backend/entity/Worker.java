@@ -1,13 +1,13 @@
 package com.example.backend.entity;
 
 
-import com.example.backend.entity.enumtypes.Specialization;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -29,8 +29,11 @@ public class Worker{
     @JoinColumn(name = "person_id")
     private Person person;
 
-    @Enumerated(EnumType.STRING)
-    private Specialization spec;
+//    @Enumerated(EnumType.STRING)
+    private String spec;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "worker", fetch = FetchType.LAZY)
+    List<Repaircomponent> repairs;
 
     @ManyToMany
     @JoinTable(
@@ -38,5 +41,5 @@ public class Worker{
             joinColumns = @JoinColumn(name="driver_id"),
             inverseJoinColumns = @JoinColumn(name="vehicle_id")
     )
-    private Set<Vehicle> vehicles;
+    private List<Vehicle> vehicles;
 }

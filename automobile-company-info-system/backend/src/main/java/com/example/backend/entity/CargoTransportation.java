@@ -15,10 +15,10 @@ public class CargoTransportation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    private long cargoVolume;
-    private long distance;
+    private Long cargoVolume;
+    private Long distance;
     private Timestamp deliveredTime;
 
     @ManyToOne

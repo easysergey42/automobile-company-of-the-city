@@ -14,9 +14,9 @@ import java.sql.Timestamp;
 public class MileageSnapshot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    private long mileage;
+    private Long mileage;
     private Timestamp snapshotAt;
 
     @ManyToOne

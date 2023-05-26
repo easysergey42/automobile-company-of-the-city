@@ -13,7 +13,9 @@ public class VehicleDTO {
     private Date acquireDate;
     private Date writeOffDate;
     private Long mileage;
-    private VehicleTypeDTO vehicleType;
-    private GarageEconomyDTO garageEconomy;
+    private String model;
+    private String number;
+    private GarageEconomyDTO location;
     private List<WorkerDTO> drivers;
+    private List<RepairDTO> repairs;
 }

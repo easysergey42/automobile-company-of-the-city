@@ -1,10 +1,9 @@
 package com.example.backend.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 
 @Entity
@@ -19,4 +18,7 @@ public class TeamLeader extends Person{
     @ManyToOne
     @JoinColumn(name = "master_id")
     private Master master;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Team> teams;
 }
