@@ -1,17 +1,12 @@
 package com.example.backend.service;
 
-import com.example.backend.dto.VehicleDTO;
-import com.example.backend.dto.front.BusFrontDTO;
+import com.example.backend.dto.front.RouteTaxiFrontDTO;
+import com.example.backend.entity.RouteTaxi;
 import com.example.backend.dto.front.VehicleFrontDTO;
-import com.example.backend.entity.Bus;
 import com.example.backend.entity.GarageEconomy;
 import com.example.backend.entity.Route;
-import com.example.backend.entity.Vehicle;
 import com.example.backend.mappers.FrontMapper;
-import com.example.backend.repository.BusRepo;
-import com.example.backend.repository.GarageEconomyRepo;
-import com.example.backend.repository.RouteRepo;
-import com.example.backend.repository.VehicleRepo;
+import com.example.backend.repository.*;
 import jakarta.transaction.Transactional;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -26,8 +21,8 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class BusService {
-    private final BusRepo busRepo;
+public class RouteTaxiService {
+    private final RouteTaxiRepo routeTaxiRepo;
     private final GarageEconomyRepo garageEconomyRepo;
     private final RouteRepo routeRepo;
     private final VehicleRepo vehicleRepo;
@@ -40,8 +35,8 @@ public class BusService {
     }
 
     @Transactional
-    public BusFrontDTO create(@NonNull BusFrontDTO request){
-        Bus vehicle = new Bus();
+    public RouteTaxiFrontDTO create(@NonNull RouteTaxiFrontDTO request){
+        var vehicle = new RouteTaxi();
         var garageEconomy = garageEconomyRepo.findByAddress(request.getAddress());
         if (garageEconomy.isPresent()) {
             vehicle.setLocation(garageEconomy.get());
@@ -69,12 +64,12 @@ public class BusService {
         vehicle.setWriteOffDate(request.getWriteOffDate());
         vehicle.setPassengersCapacity(request.getPassengersCapacity());
 
-        return FrontMapper.toBusFrontDTO(busRepo.save(vehicle));
+        return FrontMapper.toRouteTaxiFrontDTO(routeTaxiRepo.save(vehicle));
     }
 
     @Transactional
-    public BusFrontDTO update(@NonNull BusFrontDTO request){
-        Bus vehicle = busRepo.findById(request.getId()).get();
+    public RouteTaxiFrontDTO update(@NonNull RouteTaxiFrontDTO request){
+        RouteTaxi vehicle = routeTaxiRepo.findById(request.getId()).get();
         vehicle.setMileage(request.getMileage());
         vehicle.setModel(request.getModel());
         vehicle.setNumber(request.getNumber());
@@ -86,20 +81,20 @@ public class BusService {
         garageEconomy.setGeType(validate(request.getGeType()));
         Route route = vehicle.getRoute();
         route.setRouteName(request.getRouteName());
-        return FrontMapper.toBusFrontDTO(busRepo.save(vehicle));
+        return FrontMapper.toRouteTaxiFrontDTO(routeTaxiRepo.save(vehicle));
     }
 
     @Transactional
     public Long deleteById(Long id){
-        busRepo.deleteById(id);
+        routeTaxiRepo.deleteById(id);
         return id;
     }
     @Transactional
-    public List<BusFrontDTO> getAll(){
-        List<Bus> vehicles = new ArrayList<>();
-        busRepo.findAll().forEach(vehicles::add);
+    public List<RouteTaxiFrontDTO> getAll(){
+        List<RouteTaxi> vehicles = new ArrayList<>();
+        routeTaxiRepo.findAll().forEach(vehicles::add);
         return vehicles.stream()
-                .map(FrontMapper::toBusFrontDTO)
+                .map(FrontMapper::toRouteTaxiFrontDTO)
                 .collect(Collectors.toList());
     }
 
@@ -111,7 +106,7 @@ public class BusService {
                 filter((s)->s!="vehicleType").
                 filter((s)->s!="id").
                 collect(Collectors.toList());
-        fields.addAll(Arrays.stream(BusFrontDTO.class.getDeclaredFields()).
+        fields.addAll(Arrays.stream(RouteTaxiFrontDTO.class.getDeclaredFields()).
                 map(Field::getName).
                 collect(Collectors.toList()));
         return fields;

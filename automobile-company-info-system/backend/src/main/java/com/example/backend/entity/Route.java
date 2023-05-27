@@ -22,14 +22,12 @@ public class Route {
     private String routeName;
 
     @OneToMany(
-            cascade = CascadeType.PERSIST,
             mappedBy = "route",
             fetch = FetchType.EAGER
     )
     private List<Bus> buses;
 
     @OneToMany(
-            cascade = CascadeType.PERSIST,
             mappedBy = "route",
             fetch = FetchType.EAGER
     )

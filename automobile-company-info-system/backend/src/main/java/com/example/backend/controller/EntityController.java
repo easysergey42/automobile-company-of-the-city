@@ -22,10 +22,17 @@ public class EntityController {
     @GetMapping
     public ResponseEntity getAll(){
         Map<String, String> map = new HashMap<>();
-        map.put("Routes", "/routes");
-        map.put("Vehicles", "/vehicles");
-        map.put("Workers", "/workers");
-        map.put("Buses", "/vehicles/buses");
+        map.put("Починки", "/repairs");
+        map.put("Маршруты", "/routes");
+        map.put("Автотранспорт", "/vehicles");
+        map.put("Работники", "/workers");
+        map.put("Автобусы", "/vehicles/buses");
+        map.put("Маршрутки", "/vehicles/routeTaxis");
+        map.put("Грузовики", "/vehicles/trucks");
+        map.put("Грузоперевозки", "/vehicles/trucks/trucking");
+        map.put("Такси", "/vehicles/taxis");
+        map.put("Легковые автомобили", "/vehicles/passengerCars");
+        map.put("Вспомогательный транспорт", "/vehicles/specialEquipmentCars");
         ObjectMapper mapper = new ObjectMapper();
         try {
             String jsonResult = mapper.writerWithDefaultPrettyPrinter()
