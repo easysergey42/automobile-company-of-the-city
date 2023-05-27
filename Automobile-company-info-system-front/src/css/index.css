@@ -1,0 +1,91 @@
+body {
+    background-color: #181818 !important;
+    height: 100%;
+    position: absolute;
+}
+
+#MainContainer {
+    width: 100%;
+    height: 100%;
+    margin: 0 0;
+}
+
+#TableContainer {
+    position: absolute;
+    left: 300px;
+    height: 100%;
+    overflow: scroll;
+    max-width: 1620px;
+    width: 1620px;
+}
+
+#ControlPanel {
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #303030;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+}
+
+#ControlPanel > * {
+    margin-top: 20px;
+}
+
+#EntityMenu {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    left: calc((100vw - 700px) / 2);
+    top: 50px;
+    background-color: #252525;
+    color: white;
+}
+
+#EntityMenuFields {
+    height: 90%;
+    max-height: 90%;
+    overflow-y: scroll;
+}
+
+#EntityMenuFields input {
+    width: 100%;
+}
+
+#EntityMenuButtons {
+    height: 10%;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey;  */
+    border-style: solid;
+    border-color: #303030;
+    border-width: 1px;
+    border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #303030; 
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #404040; 
+}
